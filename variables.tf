@@ -93,7 +93,7 @@ variable "static_sources_support" {
 }
 
 variable "multicast_group_members" {
-  type        = map(list(string))
+  type        = map(string)
   description = "Required: The ENIs to add to the group ip address"
 /*
   default = {
