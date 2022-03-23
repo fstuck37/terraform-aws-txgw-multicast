@@ -15,4 +15,5 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "vpc_attachment" {
   subnet_ids         = var.subnet_ids
   transit_gateway_id = aws_ec2_transit_gateway.txgw.id
   vpc_id             = var.vpc_id
+  tags                            = merge(var.tags,tomap({"Name" = var.vpc_attachment_name}))
 }

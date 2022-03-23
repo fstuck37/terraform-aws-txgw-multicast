@@ -5,14 +5,21 @@ variable "region" {
 
 variable "name" {
   type = string
-  description = "Required : The name of the transit gateway"
+  description = "Optional : The name of the transit gateway. The default is txgw-multicast"
+  default = "txgw-multicast"
 }
 
 variable "multicast_domain_name" {
   type = string
-  description = "Required : The name of the multicast domain"
+  description = "Optional : The name of the multicast domain. The default is multicast_domain"
+  default = "multicast_domain"
 }
 
+variable "vpc_attachment_name" {
+  type = string
+  description = "Required : The name of the VPC attachment. Defult us multicast_attachment."
+  default = "multicast_attachment"
+}
 
 variable "amazon_side_asn" {
   type = string
