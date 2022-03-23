@@ -8,7 +8,7 @@ resource "aws_ec2_transit_gateway" "txgw" {
   transit_gateway_cidr_blocks     = var.transit_gateway_cidr_blocks
   vpn_ecmp_support                = var.vpn_ecmp_support
   multicast_support               = "enable"
-  tags                            = merge(var.tags,tomap({"Name",var.name}))
+  tags                            = merge(var.tags,tomap({"Name" = var.name}))
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "attachment1" {
