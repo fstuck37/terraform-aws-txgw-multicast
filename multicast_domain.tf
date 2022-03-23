@@ -17,7 +17,7 @@ resource "aws_ec2_transit_gateway_multicast_group_member" "group_member" {
   for_each = var.multicast_group_members
     group_ip_address                    = each.value
     network_interface_id                = each.key
-    transit_gateway_multicast_domain_id = aws_ec2_transit_gateway_multicast_domain_association.multicast_domain_association.transit_gateway_multicast_domain_id
+    transit_gateway_multicast_domain_id = aws_ec2_transit_gateway_multicast_domain_association.multicast_domain_association[local.eni-dmid[each.key]].transit_gateway_multicast_domain_id
 }
 
 
@@ -39,3 +39,4 @@ locals {
     ])
   }
 }
+
