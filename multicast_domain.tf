@@ -7,7 +7,7 @@ resource "aws_ec2_transit_gateway_multicast_domain" "multicast_domain" {
 }
 
 resource "aws_ec2_transit_gateway_multicast_domain_association" "multicast_domain_association" {
-  for_each = { for sn in local.subnet_ids : sn => sn }
+  for_each = { for sn in var.subnet_ids : sn => sn }
     subnet_id                           = each.value
     transit_gateway_attachment_id       = aws_ec2_transit_gateway_vpc_attachment.vpc_attachment.id
     transit_gateway_multicast_domain_id = aws_ec2_transit_gateway_multicast_domain.multicast_domain.id
