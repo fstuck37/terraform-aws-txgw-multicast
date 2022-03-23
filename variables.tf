@@ -8,6 +8,11 @@ variable "name" {
   description = "Required : The name of the transit gateway"
 }
 
+variable "multicast_domain_name" {
+  type = string
+  description = "Required : The name of the multicast domain"
+}
+
 
 variable "amazon_side_asn" {
   type = string

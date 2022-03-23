@@ -3,7 +3,7 @@ resource "aws_ec2_transit_gateway_multicast_domain" "multicast_domain" {
   auto_accept_shared_associations = var.auto_accept_shared_associations
   igmpv2_support                  = var.igmpv2_support
   static_sources_support          = var.static_sources_support
-  tags                            = merge(var.tags,map("Name",format("%s", "txgw-${replace(var.region,"-", "")}" )))
+  tags                            = merge(var.tags,tomap("Name" = var.multicast_domain_name))
 }
 
 resource "aws_ec2_transit_gateway_multicast_domain_association" "multicast_domain_association" {
