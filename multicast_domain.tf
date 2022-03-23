@@ -33,7 +33,7 @@ data "aws_network_interface" "enis" {
 
 locals {
   eni-dmid = {
-    for_each eni in data.aws_network_interface.enis : eni.id => join(", " [
+    for_each eni in data.aws_network_interface.enis : eni.id => join(", ", [
       for_each sn in data.aws_subnet.subnets : sn
         if sn.availability_zone == eni.availability_zone
     ])
