@@ -28,7 +28,7 @@ data "aws_subnet" "subnets" {
 
 data "aws_network_interface" "enis" {
   for_each = { for eni in keys(var.multicast_group_members) : eni => eni }
-  id = eni
+  id = each.value
 }
 
 locals {
