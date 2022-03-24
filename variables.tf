@@ -17,7 +17,7 @@ variable "multicast_domain_name" {
 
 variable "vpc_attachment_name" {
   type = string
-  description = "Required : The name of the VPC attachment. Defult us multicast_attachment."
+  description = "Required : The name of the VPC attachment. Default us multicast_attachment."
   default = "multicast_attachment"
 }
 
